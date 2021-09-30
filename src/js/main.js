@@ -17,6 +17,7 @@ function createCardsMenu(menu) {
     return menuCardTempl(menu);
 }
 
+body.classList.add('dark-theme')
 function setTheme() {
     let themePage = localStorage.getItem('theme');
     if (themePage) {
