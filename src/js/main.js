@@ -18,8 +18,8 @@ function createCardsMenu(menu) {
 function setTheme() {
     let themePage = localStorage.getItem('theme');
     if (themePage) {
-        body.classList.add(localStorage.getItem('theme'));
-        if (localStorage.getItem('theme') === 'light-theme') {
+        body.classList.add(themePage);
+        if (themePage === 'light-theme') {
             labelRef.checked = false;
             body.classList.add('light-theme');
         } else {
