@@ -1,14 +1,11 @@
 import menuCardTempl from '/templates/menu-cards.hbs';
 import menu from '/menu.json';
 
-localStorage.setItem('theme', 'dark');
-localStorage.getItem('theme');
 
 const body = document.querySelector('body')
 const menuListRef = document.querySelector('.js-menu')
 const labelRef = document.getElementById('theme-switch-toggle')
 const theme = window.localStorage.getItem("theme")
-
 const cardsMenu = createCardsMenu(menu)
 
 menuListRef.insertAdjacentHTML('beforeend', cardsMenu)
@@ -17,14 +14,14 @@ function createCardsMenu(menu) {
     return menuCardTempl(menu);
 }
 
-body.classList.add('dark-theme')
+
 function setTheme() {
     let themePage = localStorage.getItem('theme');
     if (themePage) {
-        body.classList.add(themePage);
+        body.classList.add(localStorage.getItem('theme'));
         if (localStorage.getItem('theme') === 'light-theme') {
             labelRef.checked = false;
-            body.classList.add('light-theme')
+            body.classList.add('light-theme');
         } else {
             labelRef.checked = true;
         }
@@ -41,6 +38,7 @@ labelRef.addEventListener('change', (e) => {
     if (e.target.checked) {
         localStorage.setItem('theme', 'dark-theme')
         body.classList.add('dark-theme');
+        
     }
     else {
         localStorage.setItem('theme', 'light-theme')
